@@ -325,7 +325,32 @@ passCoordinate({1,2})  ✅
 passCoordinate('oi')  ❌
 ```
 
-## 38- Propriedades opcionais
+## 38. Propriedades Opcionais
+
+Em TypeScript, podemos definir propriedades opcionais em um objeto usando `?`. Isso significa que a propriedade **pode ou não estar presente**, sem causar erros.
+
+---
+
+### 📌 Definição de uma propriedade opcional
+
+```ts
+type User = {
+  name: string;
+  age: number;
+  email?: string; // O '?' torna essa propriedade opcional
+};
+
+const user1: User = {
+  name: "Ana",
+  age: 25,
+}; // ✅ Válido, pois 'email' é opcional
+
+const user2: User = {
+  name: "Carlos",
+  age: 30,
+  email: "carlos@email.com",
+}; // ✅ Também válido
+```
 
 ## 39- Validação de parâmetro opcional
 
@@ -348,3 +373,7 @@ passCoordinate('oi')  ❌
 ## 48- Symbol
 
 ## 49- Conclusão da seção
+
+```
+
+```
