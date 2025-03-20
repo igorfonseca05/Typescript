@@ -208,3 +208,143 @@ agora toda vez que salvarmos nosso arquivo, ele será compilado automáticamente
 ## Aula 28 - Conclusão da seção
 
 # Seção 3 - Avançando em tipos
+
+## Aula 31 - Arrays
+
+Essa é a sintax mais utilizada para definir arrays no ts
+
+```javascript
+const numbers: number[] = [1, 2, 3, 4];
+
+console.log(numbers);
+
+const nomes: string[] = ["igor", "fonseca"];
+
+console.log(nomes);
+```
+
+## Aula 32 -Outra sintax para array
+
+A sintax abaixo é menos utilizada, porém é importante ser conhecida
+
+```javascript
+const num: Array<number> = [1, 2, 3, 4];
+
+console.log(num);
+```
+
+## 33- O tipo any
+
+Esse é tipo que satisfaz qualquer tipo no ts, devemos evitar ao máximo usar essa tipagem porque foge completamente do que buscamos fazer com o typescript.
+
+```javascript
+
+```
+
+## 34. Tipo de Parâmetro
+
+O tipo de parâmetro define qual tipo de dado uma função pode receber como argumento. Isso ajuda a evitar erros, garantindo que apenas valores esperados sejam passados para a função.
+
+### Exemplo:
+
+```ts
+function showMessage(message: string) {
+  console.log(message);
+}
+
+showMessage("Olá, TypeScript!"); // Correto
+showMessage(123); // Erro: número não é string
+```
+
+## 35- Tipo de retorno
+
+O tipo de retorno define qual tipo de valor a função deve devolver. Se o retorno não corresponder ao tipo esperado, o TypeScript exibirá um erro.
+
+### Exemplo:
+
+```ts
+function sum(a: number, b: number): number {
+  return a + b;
+}
+
+const resultado = sum(5, 10); // Correto, retorna um número
+```
+
+Se uma função não retornar nada, o TypeScript usa o tipo void:
+
+```ts
+function logMessage(message: string): void {
+  console.log(message);
+}
+```
+
+## 36- Funções anônimas
+
+Funções anônimas são aquelas sem um nome explícito, geralmente usadas como expressões de função ou em callbacks.
+
+```ts
+const multiply = function (a: number, b: number): number {
+  return a * b;
+};
+
+console.log(multiply(4, 5)); // Retorna 20
+```
+
+Exemplo de função anônima com arrow function:
+
+```ts
+const divide = (a: number, b: number): number => a / b;
+
+console.log(divide(10, 2)); // Retorna 5
+```
+
+## 37. Tipos de Objetos
+
+Em TypeScript, podemos definir o tipo de um objeto especificando suas propriedades e seus respectivos tipos. Isso garante que o objeto sempre siga a estrutura esperada.
+
+### 📌 Definição básica de um objeto
+
+```ts
+const user: { name: string; age: number } = {
+  name: "Igor",
+  age: 29,
+};
+
+console.log(user.name); // Igor
+console.log(user.age); // 29
+```
+
+Um outro exemplo seria o de usar objetos como parametros de funções
+
+```ts
+function passCoordinates(coord: {x: number, y: number}) {
+  console.log(x,y)
+}
+
+passCoordinate({1,2})  ✅
+passCoordinate('oi')  ❌
+```
+
+## 38- Propriedades opcionais
+
+## 39- Validação de parâmetro opcional
+
+## 40- Union type
+
+## 41- Avançando em Union types
+
+## 42- Type alias
+
+## 43- Introdução às Interfaces
+
+## 44- Type alias x Interface
+
+## 45- Literal Types
+
+## 46- Non null assertion operator
+
+## 47- BigInt
+
+## 48- Symbol
+
+## 49- Conclusão da seção
