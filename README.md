@@ -354,25 +354,182 @@ const user2: User = {
 
 ## 39- Validação de parâmetro opcional
 
+Precisamos validar esses campos porque quando usamos o argumento opcional o typescrit não se responsabiliza mais pelo que ocorre dentro do nosso código.
+
+```js
+function advancedGreeting(firstName: string, lastName?: string) {
+  if (lastName !== undefined) {
+    // aqui não verifacamos o tipo e sim se ele foi enviado
+    return console.log(`Olá ${firstName} ${lastName}, tudo bem?`);
+  }
+
+  return `Olá, ${firstName}, tudo bem?`;
+}
+```
+
 ## 40- Union type
+
+O Union type é uma alternativa melhor do que o any, onde podemos determinar dois tipos para um dado
+
+a sintax é:
+
+    number | string
+
+abaixo mostramos um exemplo
+
+```ts
+function balance(balance: string | number) {
+  console.log(`Seu extrato é: ${balance}`);
+}
+
+const arrDiverso number | string = ['igor', 29]
+```
 
 ## 41- Avançando em Union types
 
+Podemos utilizar condicionais para validação do tipo de union types e usar o `typeof` para poder analisar o tipo de dado.
+
+```ts
+function showUserRole(role: boolean | string) {
+  if (typeof role === "Boolean") {
+    return "Usuário não aprovado";
+  }
+
+  return `A função do usuário é: ${admin}`;
+}
+```
+
+Na função acima existe a verificação se o usuário é admin ou não, não existe true, somente false e "admin".
+
 ## 42- Type alias
+
+É uma forma de renomear uma sentença do typescript
+
+```ts
+type UserId = string | ObjectId;
+
+function getUserId(id: UserId) {
+  console.log(`Bem vindo, seu id é ${id}`);
+}
+```
 
 ## 43- Introdução às Interfaces
 
+Interface no typescript é uma outra forma de nomear tipo de objetos no ts. Além de nomear podemos também escolher quais propriedades e seus tipos
+
+```ts
+interface Point {
+  x: number;
+  y: number;
+  z: number;
+}
+
+function coord(coordinates: Point) {
+  console.log(
+    `As coordenadas do ponto são X: ${coordinates.x}, Y: ${coordinates.y}, Z:${coordinates.y}`
+  );
+}
+
+coord(x: 25, y: 45: z: 69)
+```
+
 ## 44- Type alias x Interface
+
+Não existe diferenças significativas entre ambas, a única diferença de fato é que a interface pode ser alterada durante o código enquanto o type alias não pode.
+
+### Interface
+
+```ts
+interface Person {
+  name: string;
+}
+
+// Pode ser modificada ✅
+interface Person {
+  age: number;
+}
+
+const person: Person = { name: "Matheus", age: 30 };
+
+console.log(person);
+```
+
+### Type Alias
+
+```ts
+type Person = {
+  name: string
+}
+
+❌ // aqui o ts lançaria um erro, pois não é possível reescrever o type
+ type Person = {
+  age: number
+}
+
+const person : Person = {name: 'Matheus', age: 30}
+
+console.log(person)
+```
 
 ## 45- Literal Types
 
+Literal Types no TypeScript são tipos que representam valores específicos e imutáveis. Em vez de um tipo genérico (como string ou number), um literal type restringe o valor a um conjunto específico.
+
+```ts
+let status: "success" | "error"; // Só pode ser "success" ou "error"
+status = "success"; // válido
+status = "failure"; // erro, "failure" não é um valor permitido
+
+let level: 1 | 2 | 3; // Só pode ser 1, 2 ou 3
+level = 2; // válido
+level = 4; // erro, 4 não é um valor permitido
+
+let isActive: true; // Só pode ser true
+isActive = false; // erro, não é permitido
+```
+
+Uso com funções
+
+```ts
+function logStatus(status: "active" | "inactive"): void {
+  console.log(status);
+}
+
+logStatus("active"); // válido
+logStatus("inactive"); // válido
+logStatus("pending"); // erro, "pending" não é permitido
+```
+
 ## 46- Non null assertion operator
+
+O Non-null Assertion Operator (!) no TypeScript é usado para indicar que uma variável ou expressão não pode ser null ou undefined, mesmo que o compilador do TypeScript não consiga garantir isso. Ou seja, ele força o TypeScript a tratar o valor como não nulo, ignorando a verificação de nulidade.
+
+**Exemplo comum:** Quando você está acessando elementos do DOM ou lidando com valores que você sabe que sempre estarão presentes após um certo ponto do código.
+
+### Sintaxe
+
+```ts
+valor!; // A expressão valor não será null ou undefined
+```
+
+### Exemplo
+
+```ts
+let nome: string | null = "João";
+
+// Usando o operador de asserção
+console.log(nome!.toUpperCase()); // Aqui, garantimos que 'nome' não é null, então podemos chamar toUpperCase sem erro
+```
 
 ## 47- BigInt
 
 ## 48- Symbol
 
 ## 49- Conclusão da seção
+
+```
+
+```
 
 ```
 

@@ -14,9 +14,6 @@ console.log(nomes)
 
 const num: Array<number> = [1,2,3,4]
 
-
-
-
 // Aula 33 - 
 // Aula 34 - 
 // Aula 35 - 
@@ -25,6 +22,14 @@ const num: Array<number> = [1,2,3,4]
 // Aula 38 - 
 // Aula 39 - 
 // Aula 40 - 
+
+const diverso: (number | string)[] = ['igor', 29]
+const multiplosType: Array<number | string> =  ['igor', 29]
+
+function showBalance(balance: string | number) {
+    console.log(`Seu extrato é: ${balance}`);
+  }
+
 // Aula 41 - 
 // Aula 42 - 
 // Aula 43 - 
