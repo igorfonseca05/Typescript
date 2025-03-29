@@ -14,6 +14,11 @@ const num = [1, 2, 3, 4];
 // Aula 38 - 
 // Aula 39 - 
 // Aula 40 - 
+const diverso = ['igor', 29];
+const multiplosType = ['igor', 29];
+function showBalance(balance) {
+    console.log(`Seu extrato é: ${balance}`);
+}
 // Aula 41 - 
 // Aula 42 - 
 // Aula 43 - 
