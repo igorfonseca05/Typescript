@@ -547,3 +547,57 @@ function getData(data: string | number): void {
 getData("Igor");
 getData(29);
 ```
+
+## 56. Operador instanceof
+
+Verifica se um objeto é de uma determinada classe:
+
+```ts
+class User {
+  name;
+  age;
+  constructor(name: string, age: number) {
+    (this.name = name), (this.age = age);
+  }
+}
+
+class FullUser extends User {
+  email;
+  constructor(name: string, age: number, email: string) {
+    super(name, age);
+    this.email = email;
+  }
+}
+
+function getUser(user: object) {
+  // Aqui temos um outro tipo de nawworing
+  if (user instanceof User) {
+    console.log("É instancia", user);
+  } else if (user instanceof FullUser) {
+    console.log(`Bem vindo ${user.name}`);
+  }
+}
+
+const firstUser = new User("igor", 29);
+const superUser = new FullUser("igor", 29, "igorfondev@gmail.com");
+
+// getUser(firstUser)
+getUser(superUser);
+```
+
+## 57. Operador in
+
+Verifica se uma propriedade existe em um objeto:
+
+```ts
+type Carro = { rodas: number; acelerar: () => void };
+type Barco = { velas: number; navegar: () => void };
+
+function mover(veiculo: Carro | Barco) {
+  if ("rodas" in veiculo) {
+    veiculo.acelerar();
+  } else {
+    veiculo.navegar();
+  }
+}
+```
