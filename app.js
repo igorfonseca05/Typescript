@@ -33,5 +33,25 @@ function store(prod) {
 const dados = ['igor', 2, true];
 dados[3] = 56;
 console.log(dados);
+// const stores: Array<Produto> = [ {
+//     name: 'Cadeira',
+//     price: 34,
+//     available: false
+// },
+// {
+//     name: 'Material',
+//     price: 25,
+//     available: true
+// },]
+const stores = [{
+        name: 'Cadeira',
+        price: 34,
+        available: false
+    },
+    {
+        name: 'Material',
+        price: 25,
+        available: true
+    },];
 // produtos.name = 'Martelo'
 // produtos.price = 35

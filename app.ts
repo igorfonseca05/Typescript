@@ -69,6 +69,39 @@ dados[3] = 56
 console.log(dados)
 
 
+type Produto = {
+    name: string,
+    price: number,
+    available: boolean
+}
+
+// const stores: Array<Produto> = [ {
+//     name: 'Cadeira',
+//     price: 34,
+//     available: false
+// },
+// {
+//     name: 'Material',
+//     price: 25,
+//     available: true
+// },]
+
+const stores: Produto[] = [ {
+    name: 'Cadeira',
+    price: 34,
+    available: false
+},
+{
+    name: 'Material',
+    price: 25,
+    available: true
+},]
+
+
+
+
+
+
 // produtos.name = 'Martelo'
 // produtos.price = 35
 

@@ -525,12 +525,25 @@ console.log(nome!.toUpperCase()); // Aqui, garantimos que 'nome' não é null, e
 
 ## 48- Symbol
 
-## 49- Conclusão da seção
+# Seção 4. Narrowing
 
-```
+## 53. O que é narrowing?
 
-```
+Narrowing no TypeScript é o processo de reduzir um tipo mais amplo para um tipo mais específico dentro de um bloco de código. Isso é útil para que o TypeScript possa entender melhor quais operações são seguras de executar em uma variável.
 
-```
+## 54. typeof Type Guard
 
+Usamos o typeof para aplicar a tecnica que chamamos de Type Guard, que ajuda o TypeScript a saber se valor é `string` ou `number`, permitindo métodos específicos de cada tipo. Veja o exemplo abaixo:
+
+```ts
+function getData(data: string | number): void {
+  if (typeof data === "string") {
+    console.log("Seu nome é " + " " + data);
+  } else {
+    console.log(`Sua idade é ${data}`);
+  }
+}
+
+getData("Igor");
+getData(29);
 ```
