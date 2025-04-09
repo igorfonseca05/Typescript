@@ -4,7 +4,7 @@ const adult = true
 
 
 function fullName(data: string) {
-    console.log(firstName +' '+ data)
+    console.log(firstName + ' ' + data)
 }
 
 
@@ -12,17 +12,17 @@ fullName('Fonseca')
 
 // Aula Numbers
 
-let weight:number // aqui adicionamos o tipo
+let weight: number // aqui adicionamos o tipo
 
 weight = 85
 
 console.log(weight)
 
-const width: number= 36
+const width: number = 36
 
-const letterWidth = width.toString()
+// const letterWidth = width.toString()
 
-console.log('O comprimento do objeto é' + " " + letterWidth)
+// console.log('O comprimento do objeto é' + " " + letterWidth)
 
 
 
