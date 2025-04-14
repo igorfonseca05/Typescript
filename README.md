@@ -587,7 +587,7 @@ getUser(superUser);
 
 ## 57. Operador in
 
-Verifica se uma propriedade existe em um objeto:
+Verifica se uma propriedade existe em um objeto
 
 ```ts
 type Carro = { rodas: number; acelerar: () => void };
