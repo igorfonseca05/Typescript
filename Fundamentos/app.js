@@ -1,5 +1,5 @@
 "use strict";
-let nome = "igor";
+// let nome: string = "igor"
 let idade = 29;
 const isAdmin = false;
 const produtos = {
