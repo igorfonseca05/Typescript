@@ -173,41 +173,41 @@
 
 // Desafio
 
-(() => {
+// (() => {
 
 
-    const user = { name: 'igor', age: 30, cidade: 'Bananal' }
+//     const user = { name: 'igor', age: 30, cidade: 'Bananal' }
 
 
-    function validateUser(x: unknown) {
-        if (Object.keys(x).includes('name') && Object.keys(x).includes('age')) {
-            return true
-        }
+//     function validateUser(x: unknown) {
+//         // if (Object.keys(x).includes('name') && Object.keys(x).includes('age')) {
+//         //     return true
+//         // }
 
-        throw new Error('Não foi possivel criar usuário')
+//         throw new Error('Não foi possivel criar usuário')
 
 
-    }
+//     }
 
-    function createUser<T>({ name, age, ...rest }: { name: string, age: number, [key: string]: any }, callback: () => void, dados?: T): { [key: string]: any } {
+//     function createUser<T>({ name, age, ...rest }: { name: string, age: number, [key: string]: any }, callback: () => void, dados?: T): { [key: string]: any } {
 
-        if (dados) return {}
+//         if (dados) return {}
 
-        const res = validateUser({ name, age, ...rest })
+//         const res = validateUser({ name, age, ...rest })
 
-        if (res) {
-            callback()
-            return rest
+//         if (res) {
+//             callback()
+//             return rest
 
-        }
+//         }
 
-        console.log('Error ao cadastrar usuário')
-    }
+//         console.log('Error ao cadastrar usuário')
+//     }
 
-    createUser(user, () => {
-        console.log('Usuário criado com sucesso')
-    })
+//     createUser(user, () => {
+//         console.log('Usuário criado com sucesso')
+//     })
 
-})()
+// })()
 
 

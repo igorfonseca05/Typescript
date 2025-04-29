@@ -123,26 +123,24 @@ var __rest = (this && this.__rest) || function (s, e) {
     console.log(info);
 })();
 // Desafio
-(() => {
-    const user = { name: 'igor', age: 30, cidade: 'Bananal' };
-    function validateUser(x) {
-        if (Object.keys(x).includes('name') && Object.keys(x).includes('age')) {
-            return true;
-        }
-        throw new Error('Não foi possivel criar usuário');
-    }
-    function createUser(_a, callback, dados) {
-        var { name, age } = _a, rest = __rest(_a, ["name", "age"]);
-        if (dados)
-            return {};
-        const res = validateUser(Object.assign({ name, age }, rest));
-        if (res) {
-            callback();
-            return rest;
-        }
-        console.log('Error ao cadastrar usuário');
-    }
-    createUser(user, () => {
-        console.log('Usuário criado com sucesso');
-    });
-})();
+// (() => {
+//     const user = { name: 'igor', age: 30, cidade: 'Bananal' }
+//     function validateUser(x: unknown) {
+//         // if (Object.keys(x).includes('name') && Object.keys(x).includes('age')) {
+//         //     return true
+//         // }
+//         throw new Error('Não foi possivel criar usuário')
+//     }
+//     function createUser<T>({ name, age, ...rest }: { name: string, age: number, [key: string]: any }, callback: () => void, dados?: T): { [key: string]: any } {
+//         if (dados) return {}
+//         const res = validateUser({ name, age, ...rest })
+//         if (res) {
+//             callback()
+//             return rest
+//         }
+//         console.log('Error ao cadastrar usuário')
+//     }
+//     createUser(user, () => {
+//         console.log('Usuário criado com sucesso')
+//     })
+// })()

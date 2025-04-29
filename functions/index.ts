@@ -102,27 +102,4 @@
     function sumAll(...n: number[]) {
         return n.reduce((number, sum) => number + sum)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})()
+})();
