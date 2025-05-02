@@ -2,22 +2,57 @@
 // 1. Interface como parâmetro
 // Crie uma interface Produto com as propriedades nome, preco e categoria.
 // Em seguida, crie uma função mostrarProduto que recebe um objeto do tipo Produto e imprime suas informações.
-// 2. Interface com parâmetro opcional
-// Crie uma interface Usuario com nome, email e uma propriedade opcional telefone.
-// Crie uma função que recebe esse objeto e imprime as informações. Trate a ausência do telefone com uma mensagem personalizada.
-// 3. Propriedades readonly
-// Crie uma interface Livro com as propriedades titulo (readonly), autor e ano.
-// Após criar um objeto Livro, tente alterar o valor de titulo e observe o erro do TypeScript.
-// 4. Index Signature
-// Crie uma interface Estoque que permite chaves dinâmicas do tipo string e valores do tipo number.
-// Em seguida, crie um objeto Estoque com alguns produtos e quantidades e imprima o conteúdo.
-// 5. Herança de interfaces
-// Crie uma interface Pessoa com nome e idade.
-// Crie outra interface Funcionario que herda de Pessoa e adiciona cargo e salario.
-// Crie um objeto do tipo Funcionario e use-o em uma função que imprime seus dados.
-// 6. Intersection types
-// Crie dois tipos: Endereco com rua e numero, e Cliente com nome e idade.
-// Use a interseção (&) para criar um tipo ClienteCompleto e crie um objeto baseado nele.
+function mostrarProduto(prod) {
+    console.log(prod.name, prod.price);
+}
+const produto = {
+    name: 'Cadeira',
+    price: 256
+};
+function getUserData(user) {
+    if (user.telefone) {
+        console.log(`O usuário ${user.name} tem o telefone ${user.telefone}`);
+    }
+    else {
+        console.log(`O usuário ${user.name} tem o email ${user.email}`);
+    }
+}
+const user = {
+    name: 'Igor',
+    email: 'Igor@gmail.com',
+    // telefone: 12966566
+};
+const book = {
+    author: 'Carlos',
+    title: 'A casa do sonhos',
+    year: 2025
+};
+const prod = {
+    price: 23,
+    altura: 12.6,
+    largura: 12.9
+};
+const func = {
+    name: 'Caio',
+    idade: 30,
+    cargo: 'gerente ',
+    salario: 2500
+};
 // 7. Readonly array
 // Crie um array chamado nomes do tipo readonly string[] com alguns nomes.
 // Tente adicionar, remover ou alterar algum
+const nomes = ['igor', 'Fonseca'];
+const nums = [1, 2, 3];
+function login(name, password) {
+    if (name && password) {
+        const res = [true, 'login realizado com sucesso'];
+        return res;
+    }
+}
+console.log(login('igor', '123456'));
+const res = ['igor', 30];
+function getCoodinates(posicao) {
+    console.log(posicao);
+}
+const coods = { posicao: [22.36521, -46.1254] };
+// getCoodinates(coods)
