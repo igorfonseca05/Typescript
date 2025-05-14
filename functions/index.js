@@ -1,5 +1,6 @@
 "use strict";
 (() => {
+    // 61 - funções sem retorno
     // function showName(nome: string): void {
     //     console.log(nome)
     // }
@@ -18,8 +19,7 @@
     showName((num1, num2) => {
         console.log(num1 + num2);
     }, 2, 3);
-    // 3- Generic function
-    // T representa um tipo genérico/ alaguma coisa que não se sabe
+    /** 62 - Generic function - T representa um tipo genérico/ alaguma coisa que não se sabe */
     function nome(dados) {
         return Object.assign({}, dados);
     }

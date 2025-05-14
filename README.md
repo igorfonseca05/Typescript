@@ -521,7 +521,56 @@ console.log(nome!.toUpperCase()); // Aqui, garantimos que 'nome' não é null, e
 
 ## 47- BigInt
 
+bigint é usado para representar números inteiros muito grandes, que excedem o limite de number (que é 2^53 - 1).
+
+```ts
+const big1: bigint = 9007199254740991n;
+const big2: bigint = BigInt("9007199254740992");
+
+const result = big1 + big2;
+console.log(result); // 18014398509481983n
+```
+
+⚠️ Observações:
+
+- Você pode usar o sufixo n ou o construtor BigInt().
+
+- bigint não pode ser misturado com number diretamente.
+
+```ts
+const normalNumber = 10;
+// const wrong = big1 + normalNumber // ❌ Erro
+```
+
 ## 48- Symbol
+
+Symbol é um tipo primitivo único e imutável, usado como identificadores exclusivos, mesmo que tenham a mesma descrição.
+
+```ts
+const sym1 = Symbol("id");
+const sym2 = Symbol("id");
+
+console.log(sym1 === sym2); // false — são únicos
+```
+
+Usando como chave de objeto:
+
+```ts
+const id = Symbol("userId");
+
+const user = {
+  name: "Igor",
+  [id]: 12345,
+};
+
+console.log(user[id]); // 12345
+```
+
+Vantagens:
+
+- Evita colisões de nomes em objetos.
+
+- Muito usado em bibliotecas/ferramentas internas (ex: no React, com $$typeof internamente).
 
 # Seção 4. Narrowing
 
@@ -604,7 +653,7 @@ function mover(veiculo: Carro | Barco) {
 
 Este documento é um resumo comentado sobre funções em TypeScript, com foco em boas práticas e recursos do idioma como generics, parâmetros opcionais, callbacks e mais.
 
-### 61 - Funções sem retorno (`void`)
+### 61. Funções sem retorno (`void`)
 
 Em TypeScript, quando uma função não retorna nenhum valor, usamos o tipo `void`.
 
@@ -618,7 +667,7 @@ showName("Igor");
 
 ---
 
-### 62 - Callback functions
+### 62. Callback functions
 
 Uma função **callback** é uma função passada como argumento para outra função, para ser executada depois de algum processo.
 
@@ -644,7 +693,7 @@ showName(
 
 ---
 
-### 63 - Funções genéricas (Generics)
+### 63. Funções genéricas (Generics)
 
 Funções genéricas permitem que você escreva funções reutilizáveis que funcionam com diferentes tipos de dados.
 
@@ -661,7 +710,7 @@ console.log(myData);
 
 ---
 
-### 63 - Constraints em Generics
+### 63. Constraints em Generics
 
 Podemos restringir os tipos aceitos por um generic usando `extends`. Isso é útil para garantir que os valores tenham certas propriedades ou tipos.
 
@@ -673,7 +722,7 @@ function sum<T extends number | string>(num: T, num2: T): T {
 
 ---
 
-### 64 - Especificar tipos de argumentos com Generics
+### 64. Especificar tipos de argumentos com Generics
 
 Você pode especificar explicitamente o tipo ao chamar a função:
 
@@ -688,7 +737,7 @@ console.log(mergeArray<number | string>([1, 2, 3], ["ana"]));
 
 ---
 
-### 64 - Parâmetros opcionais
+### 64. Parâmetros opcionais
 
 Você pode definir parâmetros como opcionais usando `?`.
 
@@ -705,7 +754,7 @@ console.log(modernGreeting("Igor"));
 
 ---
 
-### 64 - Parâmetros com valor default
+### 64. Parâmetros com valor default
 
 É possível definir valores padrão para parâmetros.
 
@@ -719,7 +768,7 @@ somaDefault(1); // Output: 11
 
 ---
 
-### 65 - Tipo `unknown`
+### 65. Tipo `unknown`
 
 O tipo `unknown` é mais seguro do que `any`, pois exige validação antes do uso.
 
@@ -731,7 +780,7 @@ function doSomething(x: unknown) {
 
 ---
 
-### 69 - Rest Operator
+### 69. Rest Operator
 
 O operador `...` permite passar múltiplos argumentos como um array.
 
@@ -751,9 +800,156 @@ console.log(sumAll(1, 2, 3, 4)); // Output: 10
 
 Este documento reúne conceitos e exemplos comentados sobre **Generics** e **Tipos Avançados** no TypeScript. Ele mostra como utilizar de forma eficaz os recursos de tipagem da linguagem para escrever código mais robusto, seguro e reutilizável.
 
----
+### 73. O que são Object Types?
 
-### 86 - Revisão: O que são Generics?
+**Object types** representam dados que possuem a estrutura de um objeto:
+
+```ts
+const user = { name: "igor", age: 30 };
+```
+
+### 74. Interface como parâmetro
+
+Interfaces permitem **tipar objetos** de forma reutilizável:
+
+```ts
+interface ProductsProps {
+  name: string;
+  price: number;
+  isAvaliable: boolean;
+}
+
+function createProduct(product: ProductsProps): void {
+  console.log(`The ${product.name} is avaliable? ${product.isAvaliable}`);
+}
+
+const item: ProductsProps = {
+  name: "Caderno",
+  price: 22.3,
+  isAvaliable: true,
+};
+```
+
+### 75. Interface com parâmetro opcional
+
+Com `?`, você define uma propriedade como **opcional**:
+
+```ts
+interface UserProps {
+  name: string;
+  role?: string;
+}
+
+function showUser(user: UserProps): void {
+  console.log(`The user ${user.name} is admin? ${user.role ?? true}`);
+}
+```
+
+### 76. Propriedades readonly
+
+`readonly` impede que a propriedade seja alterada:
+
+```ts
+interface CarProps {
+  nome: string;
+  brand: string;
+  readonly wheel: number;
+}
+```
+
+### 77. Index Signature
+
+Permite declarar um objeto com chaves dinâmicas:
+
+```ts
+interface UserProps {
+  [index: string]: string;
+}
+
+const user: UserProps = {
+  name: "Caio",
+  age: "30",
+};
+```
+
+### 78. Herança de interfaces
+
+Usamos `extends` para herdar propriedades:
+
+```ts
+interface Products {
+  name: string;
+  price: number;
+}
+
+interface CleaningProducts extends Products {
+  isAvaliable: boolean;
+}
+```
+
+### 79. Intersection types
+
+Unimos interfaces com `&`:
+
+```ts
+interface PersonalInfos {
+  name: string;
+}
+
+interface PrivateInfos {
+  cpf: number;
+}
+
+type UserInfo = PersonalInfos & PrivateInfos;
+```
+
+### 80. Readonly array
+
+`ReadonlyArray` impede modificação direta do array:
+
+```ts
+const nomes: ReadonlyArray<string> = ["Igor", "Eduardo", "Caio", "Marcelo"];
+```
+
+### 81. Tuplas
+
+Definem a quantidade e tipos de elementos em um array:
+
+```ts
+type fourNumbers = [number, number, number, number];
+const nums: fourNumbers = [1, 2, 3, 4];
+
+type dataMix = [string, string, number];
+const test: dataMix = ["Igor", "Fonseca", 30];
+```
+
+### 82. Tuplas com readonly
+
+Tuplas que não podem ser alteradas:
+
+```ts
+function showNumbers(num: readonly [number, number]) {
+  console.log(num);
+}
+
+showNumbers([1, 2]);
+```
+
+### 83. Conclusão da seção
+
+Essa seção reforça conceitos fundamentais do TypeScript relacionados a objetos e estruturas de dados, incluindo:
+
+- Tipos de objetos
+- Interfaces
+- Herança e interseção de interfaces
+- Arrays readonly
+- Tuplas
+
+Esses conceitos são essenciais para a construção de aplicações TypeScript bem tipadas e seguras.
+
+# Seção 7 - Criação de tipos
+
+### 86. Revisão: O que são Generics?
 
 **Generics** são usados para criar funções, interfaces ou classes que funcionam com qualquer tipo de dado, mantendo a tipagem forte.
 
@@ -770,7 +966,7 @@ function showData<T>(arg: T): string {
 
 ---
 
-### 87 - Constraints em Generics
+### 87. Constraints em Generics
 
 Você pode limitar os tipos que podem ser usados com generics usando **constraints**.
 
@@ -788,7 +984,7 @@ getNome(name); // Funciona
 
 ---
 
-### 88 - Generics com Interface
+### 88. Generics com Interface
 
 Interfaces também podem receber generics para permitir flexibilidade na definição de tipos.
 
@@ -807,42 +1003,42 @@ Aqui, `Car` pode ser instanciada com diferentes tipos para as rodas (`wheel`) e 
 
 ---
 
-### 89 - Type Parameters (em construção)
+### 89. Type Parameters (em construção)
 
 Este tópico normalmente cobre o uso de parâmetros de tipo mais complexos e o uso de múltiplos generics juntos. Ainda não há exemplo implementado.
 
 ---
 
-### 90 - Keyof Type Operator (em breve)
+### 90. Keyof Type Operator (em breve)
 
 O operador `keyof` permite obter as chaves (propriedades) de um tipo como um novo tipo.
 
 ---
 
-### 91 - Typeof Type Operator (em breve)
+### 91. Typeof Type Operator (em breve)
 
 Usado para criar tipos baseados em valores existentes com o operador `typeof`.
 
 ---
 
-### 92 - Indexed Access Types (em breve)
+### 92. Indexed Access Types (em breve)
 
 Permite acessar o tipo de uma propriedade específica de um objeto tipo, como `Tipo['propriedade']`.
 
 ---
 
-### 93 - Conditional Types (em breve)
+### 93. Conditional Types (em breve)
 
 Tipos condicionais permitem criar tipos que mudam de acordo com uma condição.
 
 ---
 
-### 94 - Template Literal Types (em breve)
+### 94. Template Literal Types (em breve)
 
 Permite criar tipos com base em strings usando templates, como em string interpolation.
 
 ---
 
-### 95 - Conclusão da seção
+### 95. Conclusão da seção
 
 Estes conceitos avançados são essenciais para criar bibliotecas, APIs tipadas, e sistemas escaláveis. Estudar Generics e operadores de tipo ajuda a tirar o máximo proveito da segurança de tipos do TypeScript.
