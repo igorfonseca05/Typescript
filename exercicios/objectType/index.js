@@ -2,13 +2,15 @@
 // 1. Interface como parâmetro
 // Crie uma interface Produto com as propriedades nome, preco e categoria.
 // Em seguida, crie uma função mostrarProduto que recebe um objeto do tipo Produto e imprime suas informações.
-function mostrarProduto(prod) {
-    console.log(prod.name, prod.price);
-}
-const produto = {
-    name: 'Cadeira',
-    price: 256
-};
+(() => {
+    function mostrarProduto(prod) {
+        console.log(prod.name, prod.price);
+    }
+    const produto = {
+        name: 'Cadeira',
+        price: 256
+    };
+})();
 function getUserData(user) {
     if (user.telefone) {
         console.log(`O usuário ${user.name} tem o telefone ${user.telefone}`);

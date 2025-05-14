@@ -1,18 +1,18 @@
 
 // Aula 31 - Arrays 
 
-const numbers: number[] = [1,2,3,4]
+const numbers: number[] = [1, 2, 3, 4]
 
 console.log(numbers)
 
-const nomes: string[] = ['igor', 'fonseca']
+// const nomes: string[] = ['igor', 'fonseca']
 
-console.log(nomes)
+// console.log(nomes)
 
 
 // Aula 32 - Outra sintax para array
 
-const num: Array<number> = [1,2,3,4]
+const num: Array<number> = [1, 2, 3, 4]
 
 // Aula 33 - 
 // Aula 34 - 
@@ -24,20 +24,20 @@ const num: Array<number> = [1,2,3,4]
 // Aula 40 - 
 
 const diverso: (number | string)[] = ['igor', 29]
-const multiplosType: Array<number | string> =  ['igor', 29]
+const multiplosType: Array<number | string> = ['igor', 29]
 
 function showBalance(balance: string | number) {
-    console.log(`Seu extrato é: ${balance}`);
-  }
+  console.log(`Seu extrato é: ${balance}`);
+}
 
-// Aula 41 - 
-// Aula 42 - 
-// Aula 43 - 
-// Aula 44 - 
-// Aula 45 - 
-// Aula 46 - 
-// Aula 47 - 
-// Aula 48 - 
-// Aula 49 - 
-// Aula 50 - 
+// Aula 41 -
+// Aula 42 -
+// Aula 43 -
+// Aula 44 -
+// Aula 45 -
+// Aula 46 -
+// Aula 47 -
+// Aula 48 -
+// Aula 49 -
+// Aula 50 -
 // Aula 51 - 

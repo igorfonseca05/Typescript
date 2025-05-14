@@ -57,7 +57,7 @@ const soma2: Soma = (x, y) => {
 };
 ```
 
-## Aula 2 - Tipo _Any_
+### Aula 2 - Tipo _Any_
 
 O problema de se manter o _any_ como tipo de uma variavel no ts é que com o any nós podemos fazer qualquer tipo de operação com a variável, uma vez que o ts não tipa o _any_, o que claramente pode trazer problemas para dentro do código, ou seja:
 
@@ -67,7 +67,7 @@ Uma outra dica dada nessa aula é:
 
 ✅: Só tipe a variável se o typeScript reclamar por falta de tipagem
 
-## Aula 3 - Tipo _Void_
+### Aula 3 - Tipo _Void_
 
 É a tipagem que fazemos quando queremos que um método e função no ts não retorne nada.
 
@@ -94,7 +94,7 @@ const pessoa = {
 
 Nos exemplos acima não há retorno nenhum e com o uso do void o typescript não lança um erro devido a tipagem.
 
-## Aula 4 - Tipo Object(Objetos em geral)
+### Aula 4 - Tipo Object(Objetos em geral)
 
 Nessa aula vamos aprender como podemos tipar objetos dentro do typescript
 
@@ -104,7 +104,7 @@ Nessa aula vamos aprender como podemos tipar objetos dentro do typescript
 
 # Seção 2 - Fundamentos do Typescript
 
-## Aula 20 - O que são tipos?
+### 20 - O que são tipos?
 
 Como foi mostrado acima, a principal função so typescript é determinar tipos para os dados do nosso projeto, seja para uma variavel, array, objetos e assim por diante.
 
@@ -114,7 +114,7 @@ Como foi mostrado acima, a principal função so typescript é determinar tipos 
 - Ou seja, precisamos **definir corretamente o tipo** das variáveis, dos retornos das funções, das manipulações de dados; 📌
 - Consequentemente, teremos um software melhor programado e é este o principal intuito do TS; 🎯
 
-## Aula 21 - Tipos primitivos
+### 21 - Tipos primitivos
 
 Os tipos primitivos no typescript são os mais simples e são os mesmo do javascript
 
@@ -128,7 +128,7 @@ Os tipos primitivos no typescript são os mais simples e são os mesmo do javasc
 
 Todos eles devem ser escritos em letra **minuscula**
 
-## Aula 23 - Conhecendo o _number_
+### 23 - Conhecendo o _number_
 
 - Garante que o tipo de um dado seja sempre um tipo number
 
@@ -140,7 +140,7 @@ console.log(age);
 
 Se tentarmos usar algo como "29" o typescript vai lançar um error pq age só pode ser do tipo number.
 
-## Aula 24 - Conhecendo o _string_
+### 24 - Conhecendo o _string_
 
 - Garante que o tipo de um dado seja sempre um tipo string
 
@@ -152,7 +152,7 @@ console.log(name);
 
 Se tentarmos usar algo como **true** o typescript vai lançar um error pq **name** só pode ser do tipo string.
 
-## Aula 25 - Conhecendo o **boolean**
+### 25 - Conhecendo o **boolean**
 
 - Garante que o tipo de um dado seja sempre um tipo string
 
@@ -164,7 +164,7 @@ console.log(adulto);
 
 Se tentarmos usar algo como **Igor** o typescript vai lançar um error pq _adulto_ só pode ser do tipo boolean.
 
-## Aula 25 - TS e aplicação
+### 25 - TS e aplicação
 
 - Talvez já tenha ficado claro, mas programar com TS é como um **pair programming** 👍;
 - Temos sempre alguém para nos avisar se algo é **feito errado** ⚠️;
@@ -172,7 +172,7 @@ Se tentarmos usar algo como **Igor** o typescript vai lançar um error pq _adult
 - Por isso há **uma trava de compilação com erros** 🛑;
 - Além de erros, o TS também proporciona **avisos** 🔔;
 
-## Aula 26 - Type inference e Type annotation
+### 26 - Type inference e Type annotation
 
 São duas formas diferentes que podemos utilizar para podermos inferir tipo nas nossas variaveis. Por exemplo, o **Type annotation** é a forma cque utilizamos até aqui para podermos inferir tipo, nesse caso o `:`
 
@@ -188,7 +188,7 @@ const name = "Igor"; // Usando o Type inference
 
 aqui o Typescript irá inferir o tipo da variável e manterá esse método durante toda criação do seu projeto.
 
-## Aula 27 - Gerando arquivo de configuração
+### 27 - Gerando arquivo de configuração
 
 - O TS pode ser configurado de **muitas maneiras** 🔧;
 - Mas para isso precisamos do **arquivo de configuração** 📄;
@@ -197,7 +197,7 @@ aqui o Typescript irá inferir o tipo da variável e manterá esse método duran
   tsc --init
   ```
 
-## Aula 28 - Compilação automática
+### 28 - Compilação automática
 
 Para ativarmos o _watch mode_ do typescript, no terminal fazemos:
 
@@ -205,11 +205,11 @@ Para ativarmos o _watch mode_ do typescript, no terminal fazemos:
 
 agora toda vez que salvarmos nosso arquivo, ele será compilado automáticamente sem precisar fazer isso manualmente.
 
-## Aula 28 - Conclusão da seção
+### 28 - Conclusão da seção
 
 # Seção 3 - Avançando em tipos
 
-## Aula 31 - Arrays
+### 31 - Arrays
 
 Essa é a sintax mais utilizada para definir arrays no ts
 
@@ -223,7 +223,7 @@ const nomes: string[] = ["igor", "fonseca"];
 console.log(nomes);
 ```
 
-## Aula 32 -Outra sintax para array
+### 32 - Outra sintax para array
 
 A sintax abaixo é menos utilizada, porém é importante ser conhecida
 
@@ -233,15 +233,15 @@ const num: Array<number> = [1, 2, 3, 4];
 console.log(num);
 ```
 
-## 33- O tipo any
+### 33 - O tipo any
 
 Esse é tipo que satisfaz qualquer tipo no ts, devemos evitar ao máximo usar essa tipagem porque foge completamente do que buscamos fazer com o typescript.
 
 ```javascript
-
+const arr1: any = [1, "igor", true, ["igor", 4]];
 ```
 
-## 34. Tipo de Parâmetro
+### 34 - Tipo de Parâmetro
 
 O tipo de parâmetro define qual tipo de dado uma função pode receber como argumento. Isso ajuda a evitar erros, garantindo que apenas valores esperados sejam passados para a função.
 
@@ -256,7 +256,7 @@ showMessage("Olá, TypeScript!"); // Correto
 showMessage(123); // Erro: número não é string
 ```
 
-## 35- Tipo de retorno
+## 35 - Tipo de retorno
 
 O tipo de retorno define qual tipo de valor a função deve devolver. Se o retorno não corresponder ao tipo esperado, o TypeScript exibirá um erro.
 
@@ -278,7 +278,7 @@ function logMessage(message: string): void {
 }
 ```
 
-## 36- Funções anônimas
+## 36 - Funções anônimas
 
 Funções anônimas são aquelas sem um nome explícito, geralmente usadas como expressões de função ou em callbacks.
 
@@ -298,7 +298,7 @@ const divide = (a: number, b: number): number => a / b;
 console.log(divide(10, 2)); // Retorna 5
 ```
 
-## 37. Tipos de Objetos
+## 37 - Tipos de Objetos
 
 Em TypeScript, podemos definir o tipo de um objeto especificando suas propriedades e seus respectivos tipos. Isso garante que o objeto sempre siga a estrutura esperada.
 
@@ -325,11 +325,9 @@ passCoordinate({1,2})  ✅
 passCoordinate('oi')  ❌
 ```
 
-## 38. Propriedades Opcionais
+## 38 - Propriedades Opcionais
 
 Em TypeScript, podemos definir propriedades opcionais em um objeto usando `?`. Isso significa que a propriedade **pode ou não estar presente**, sem causar erros.
-
----
 
 ### 📌 Definição de uma propriedade opcional
 
@@ -527,11 +525,11 @@ console.log(nome!.toUpperCase()); // Aqui, garantimos que 'nome' não é null, e
 
 # Seção 4. Narrowing
 
-## 53. O que é narrowing?
+### 53. O que é narrowing?
 
 Narrowing no TypeScript é o processo de reduzir um tipo mais amplo para um tipo mais específico dentro de um bloco de código. Isso é útil para que o TypeScript possa entender melhor quais operações são seguras de executar em uma variável.
 
-## 54. typeof Type Guard
+### 54. typeof Type Guard
 
 Usamos o typeof para aplicar a tecnica que chamamos de Type Guard, que ajuda o TypeScript a saber se valor é `string` ou `number`, permitindo métodos específicos de cada tipo. Veja o exemplo abaixo:
 
@@ -548,7 +546,7 @@ getData("Igor");
 getData(29);
 ```
 
-## 56. Operador instanceof
+### 56. Operador instanceof
 
 Verifica se um objeto é de uma determinada classe:
 
@@ -585,7 +583,7 @@ const superUser = new FullUser("igor", 29, "igorfondev@gmail.com");
 getUser(superUser);
 ```
 
-## 57. Operador in
+### 57. Operador in
 
 Verifica se uma propriedade existe em um objeto
 
@@ -601,3 +599,250 @@ function mover(veiculo: Carro | Barco) {
   }
 }
 ```
+
+# Seção 5 - Funções com Typescript
+
+Este documento é um resumo comentado sobre funções em TypeScript, com foco em boas práticas e recursos do idioma como generics, parâmetros opcionais, callbacks e mais.
+
+### 61 - Funções sem retorno (`void`)
+
+Em TypeScript, quando uma função não retorna nenhum valor, usamos o tipo `void`.
+
+```ts
+function showName(nome: string): void {
+  console.log(nome);
+}
+
+showName("Igor");
+```
+
+---
+
+### 62 - Callback functions
+
+Uma função **callback** é uma função passada como argumento para outra função, para ser executada depois de algum processo.
+
+### ✅ Exemplo com callback que soma dois números:
+
+```ts
+function showName(
+  callback: (num1: number, num2: number) => void,
+  num: number,
+  num2: number
+) {
+  callback(num, num2);
+}
+
+showName(
+  (num1, num2) => {
+    console.log(num1 + num2);
+  },
+  2,
+  3
+);
+```
+
+---
+
+### 63 - Funções genéricas (Generics)
+
+Funções genéricas permitem que você escreva funções reutilizáveis que funcionam com diferentes tipos de dados.
+
+```ts
+function nome<T>(dados: T): T {
+  return {
+    ...dados,
+  };
+}
+
+const myData = nome("oi");
+console.log(myData);
+```
+
+---
+
+### 63 - Constraints em Generics
+
+Podemos restringir os tipos aceitos por um generic usando `extends`. Isso é útil para garantir que os valores tenham certas propriedades ou tipos.
+
+```ts
+function sum<T extends number | string>(num: T, num2: T): T {
+  // Exemplo omitido: implementação dependeria do tipo
+}
+```
+
+---
+
+### 64 - Especificar tipos de argumentos com Generics
+
+Você pode especificar explicitamente o tipo ao chamar a função:
+
+```ts
+function mergeArray<T>(arr1: T[], arr2: T[]): T[] {
+  return arr1.concat(arr2);
+}
+
+console.log(mergeArray([1, 2, 3], [4, 5, 6]));
+console.log(mergeArray<number | string>([1, 2, 3], ["ana"]));
+```
+
+---
+
+### 64 - Parâmetros opcionais
+
+Você pode definir parâmetros como opcionais usando `?`.
+
+```ts
+function modernGreeting(name: string, greet?: string) {
+  if (greet) {
+    return `Olá ${name} ${greet}, tudo bem?`;
+  }
+  return `Olá ${name}, tudo bem?`;
+}
+
+console.log(modernGreeting("Igor"));
+```
+
+---
+
+### 64 - Parâmetros com valor default
+
+É possível definir valores padrão para parâmetros.
+
+```ts
+function somaDefault(num1: number, num = 10) {
+  console.log(num1 + num);
+}
+
+somaDefault(1); // Output: 11
+```
+
+---
+
+### 65 - Tipo `unknown`
+
+O tipo `unknown` é mais seguro do que `any`, pois exige validação antes do uso.
+
+```ts
+function doSomething(x: unknown) {
+  console.log(x);
+}
+```
+
+---
+
+### 69 - Rest Operator
+
+O operador `...` permite passar múltiplos argumentos como um array.
+
+```ts
+function sumAll(...n: number[]) {
+  return n.reduce((number, sum) => number + sum);
+}
+
+console.log(sumAll(1, 2, 3, 4)); // Output: 10
+```
+
+---
+
+📌 **Resumo**: Estes exemplos cobrem funcionalidades essenciais de TypeScript relacionadas a funções, como generics, callbacks, parâmetros opcionais, rest operator e tipos avançados. Eles são amplamente usados em aplicações reais para tornar o código mais robusto, reutilizável e seguro.
+
+# Seção 6 - Entendendo os Objects Types
+
+Este documento reúne conceitos e exemplos comentados sobre **Generics** e **Tipos Avançados** no TypeScript. Ele mostra como utilizar de forma eficaz os recursos de tipagem da linguagem para escrever código mais robusto, seguro e reutilizável.
+
+---
+
+### 86 - Revisão: O que são Generics?
+
+**Generics** são usados para criar funções, interfaces ou classes que funcionam com qualquer tipo de dado, mantendo a tipagem forte.
+
+```ts
+function showData<T>(arg: T): string {
+  return `O dado é ${arg}`;
+}
+```
+
+### ✅ Vantagens:
+
+- Reutilização de código com segurança de tipos.
+- Evita o uso de `any`, que é menos seguro.
+
+---
+
+### 87 - Constraints em Generics
+
+Você pode limitar os tipos que podem ser usados com generics usando **constraints**.
+
+```ts
+function getNome<T extends { name: string }>(obj: T) {
+  return `O campo recebe o nome de ${obj.name}`;
+}
+
+const name = { name: "Igor" };
+const prod = { label: "Caderno" };
+
+getNome(name); // Funciona
+// getNome(prod)   // Erro, pois não possui a propriedade 'name'
+```
+
+---
+
+### 88 - Generics com Interface
+
+Interfaces também podem receber generics para permitir flexibilidade na definição de tipos.
+
+```ts
+interface Car<T, U> {
+  name: string;
+  wheel: T;
+  engine: U;
+}
+
+type MyCar = Car<string, string>;
+type MySecondCar = Car<number, boolean>;
+```
+
+Aqui, `Car` pode ser instanciada com diferentes tipos para as rodas (`wheel`) e motor (`engine`), dependendo do contexto.
+
+---
+
+### 89 - Type Parameters (em construção)
+
+Este tópico normalmente cobre o uso de parâmetros de tipo mais complexos e o uso de múltiplos generics juntos. Ainda não há exemplo implementado.
+
+---
+
+### 90 - Keyof Type Operator (em breve)
+
+O operador `keyof` permite obter as chaves (propriedades) de um tipo como um novo tipo.
+
+---
+
+### 91 - Typeof Type Operator (em breve)
+
+Usado para criar tipos baseados em valores existentes com o operador `typeof`.
+
+---
+
+### 92 - Indexed Access Types (em breve)
+
+Permite acessar o tipo de uma propriedade específica de um objeto tipo, como `Tipo['propriedade']`.
+
+---
+
+### 93 - Conditional Types (em breve)
+
+Tipos condicionais permitem criar tipos que mudam de acordo com uma condição.
+
+---
+
+### 94 - Template Literal Types (em breve)
+
+Permite criar tipos com base em strings usando templates, como em string interpolation.
+
+---
+
+### 95 - Conclusão da seção
+
+Estes conceitos avançados são essenciais para criar bibliotecas, APIs tipadas, e sistemas escaláveis. Estudar Generics e operadores de tipo ajuda a tirar o máximo proveito da segurança de tipos do TypeScript.

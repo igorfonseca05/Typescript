@@ -2,20 +2,22 @@
 // Crie uma interface Produto com as propriedades nome, preco e categoria.
 // Em seguida, crie uma função mostrarProduto que recebe um objeto do tipo Produto e imprime suas informações.
 
-interface Produtos {
-    name: string,
-    price: number
-}
+(() => {
+    interface Produtos {
+        name: string,
+        price: number
+    }
 
-function mostrarProduto(prod: Produtos) {
-    console.log(prod.name, prod.price)
-}
+    function mostrarProduto(prod: Produtos) {
+        console.log(prod.name, prod.price)
+    }
 
-const produto: Produtos = {
-    name: 'Cadeira',
-    price: 256
+    const produto: Produtos = {
+        name: 'Cadeira',
+        price: 256
+    }
 }
-
+)()
 // mostrarProduto(produto)
 
 
