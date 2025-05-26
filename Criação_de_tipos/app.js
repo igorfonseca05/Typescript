@@ -45,11 +45,16 @@
         price: 23,
         isAvaliable: false
     };
-    getPrice(produto, 'price');
+    // getPrice(produto, 'price')
     // Compartilhar tipos entre variavies
     const name = 'Igor';
     const sobrenome = 'Fonseca';
     function getName(variable) {
         console.log(variable);
     }
+    (() => {
+        const name = 'Igor';
+        const age = 23;
+        console.log(name, age);
+    })();
 })();

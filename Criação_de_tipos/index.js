@@ -65,6 +65,6 @@ function getKeyObj(obj, key) {
         getUserName("altura");
     })();
 // const userAge: newType = 39 // Vai dar erro
-const userName = 'Cadeira';
+// const userName: newType = 'Cadeira'
 // 94. Template literals type
 // 95. Conclusão da seção

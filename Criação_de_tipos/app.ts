@@ -91,7 +91,7 @@
         isAvaliable: false
     }
 
-    getPrice(produto, 'price')
+    // getPrice(produto, 'price')
 
 
     // Compartilhar tipos entre variavies
@@ -110,7 +110,12 @@
 
 
 
+    (() => {
+        const name = 'Igor'
+        const age = 23
 
+        console.log(name, age)
+    })()
 
 
 

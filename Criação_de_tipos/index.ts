@@ -132,11 +132,21 @@ interface Z { }
 type newType = B extends Z ? string : number
 
 // const userAge: newType = 39 // Vai dar erro
-const userName: newType = 'Cadeira'
+// const userName: newType = 'Cadeira'
 
 // 94. Template literals type
 
 // 95. Conclusão da seção
+
+
+
+
+
+
+
+
+
+
 
 
 
