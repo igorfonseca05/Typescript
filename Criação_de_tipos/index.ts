@@ -62,6 +62,12 @@ function showData<T>(arg: T): string {
  * lógica da função é são os dados armazenados nos campos do objeto
  */
 
+/**
+ * We use this resource to create functions which take object's key as paramets
+ * of the function, in other words, the data that we can use inside the function is
+ * the data what's limited in the object. 
+ */
+
 (() => {
 
     function getSomeKey<T, K extends keyof T>(obj: T, key: K) {
@@ -116,7 +122,17 @@ function getKeyObj(obj: Userkey, key: Username) {
 
 // 93. Conditional types
 
+/** Permite criar novos tipos baseados em condições */
 
+interface A { }
+
+interface B { }
+interface Z { }
+
+type newType = B extends Z ? string : number
+
+// const userAge: newType = 39 // Vai dar erro
+const userName: newType = 'Cadeira'
 
 // 94. Template literals type
 
