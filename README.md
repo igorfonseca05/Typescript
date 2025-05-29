@@ -1,3 +1,7 @@
+
+![ty](https://github.com/user-attachments/assets/b4234b87-a62e-42dd-ae77-10a391ab1833)
+
+
 # Seção 1 - Introdução
 
 TypeScript é uma linguagem de programação de alto nível, livre e de código aberto, desenvolvida pela Microsoft que adiciona tipagem estática com anotações de tipo opcionais ao JavaScript.
