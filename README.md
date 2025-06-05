@@ -1042,3 +1042,298 @@ Permite criar tipos com base em strings usando templates, como em string interpo
 ### 95. Conclusão da seção
 
 Estes conceitos avançados são essenciais para criar bibliotecas, APIs tipadas, e sistemas escaláveis. Estudar Generics e operadores de tipo ajuda a tirar o máximo proveito da segurança de tipos do TypeScript.
+
+# Seção 8 - Classes com Typescript
+
+### 97. Campos em classes
+
+Campos são variáveis declaradas diretamente dentro da classe e representam os dados que os objetos daquela classe armazenam.
+
+```ts
+// Criando classe sem valor de campo inicial
+class User {
+  name!: string;
+  lastName!: string;
+}
+
+const user = new User();
+
+user.name = "Igor";
+
+console.log(user);
+```
+
+### 98. Constructor
+
+Método especial executado automaticamente quando uma instância da classe é criada. É usado para inicializar os membros da classe.
+
+```ts
+class UserData {
+  name;
+  email;
+
+  constructor(name: string, email: string) {
+    this.name = name;
+    this.email = email;
+  }
+}
+
+const user2 = new UserData("Igor", "igor@gmail.com");
+```
+
+### 99. Propriedades readonly
+
+Propriedades marcadas como readonly só podem ser atribuídas uma vez. Isso ajuda a garantir imutabilidade.
+
+```ts
+class Car {
+  name;
+  readonly wheel = 4;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+const fusca = new Car("Fusca");
+console.log(fusca);
+```
+
+### 100. Herança e super
+
+Permite que uma classe herde outra. A palavra-chave super é usada para acessar membros da classe base, como seu construtor.
+
+```ts
+class Prod {
+  name;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+class ProdSize extends Prod {
+  size;
+
+  constructor(name: string, size: number) {
+    super(name);
+    this.size = size;
+  }
+}
+
+const prod = new ProdSize("Cadeira", 134);
+
+console.log(prod);
+```
+
+### 101. Métodos
+
+Funções que definem comportamentos das instâncias da classe.
+
+```ts
+class Products {
+  prodId;
+  name;
+  price;
+
+  constructor(prodId: number, name: string, price: number) {
+    (this.prodId = prodId), (this.name = name), (this.price = price);
+  }
+}
+
+class Orders extends Products {
+  idOrder;
+  quantity;
+  constructor(
+    idOrder: number,
+    quantity: number,
+    prodId: number,
+    name: string,
+    price: number
+  ) {
+    super(prodId, name, price);
+    this.idOrder = idOrder;
+    this.quantity = quantity;
+  }
+
+  total() {
+    console.log(this.quantity * this.price);
+  }
+}
+
+const order = new Orders(1, 2, 23, "Caderno", 15.63);
+```
+
+### 02. O this em classes
+
+A palavra-chave this se refere à instância atual da classe e permite acessar seus membros (propriedades e métodos).
+
+```ts
+
+```
+
+### 103. Getters
+
+Getters são usados para retornar dados para o usuário, porém, podemos editar esse dado antes dele ser enviado
+
+```ts
+class Person {
+  name;
+  lastName;
+  yearOfBithday;
+
+  constructor(name: string, lastName: string, yearOfBithday: number) {
+    this.name = name;
+    this.lastName = lastName;
+    this.yearOfBithday = yearOfBithday;
+  }
+
+  get age() {
+    return new Date().getFullYear() - this.yearOfBithday;
+  }
+}
+
+const carol = new Person("Carol", "Fonseca", 1995);
+
+console.log(carol.age);
+```
+
+### 104. Setters
+
+Setters são parecidos com o Getter teóricamente, porem são usados para manipular dados antes de adiciona-los
+dentro da instância da classe
+
+```ts
+class Person {
+  name;
+  lastName;
+  yearOfBithday;
+
+  constructor(name: string, lastName: string, yearOfBithday: number) {
+    this.name = name;
+    this.lastName = lastName;
+    this.yearOfBithday = yearOfBithday;
+  }
+
+  get age() {
+    return new Date().getFullYear() - this.yearOfBithday;
+  }
+
+  // Aqui recebemos, verificamos e modificamos os dados antes de salvar
+  set addUserName(value: string) {
+    if (value === "") {
+      return;
+    }
+    this.name = value.toUpperCase();
+  }
+}
+
+const carol = new Person("Carol", "Fonseca", 1995);
+
+// Para invocar um setter fazemos
+carol.addUserName = "carol";
+// Não usamos ()
+```
+
+### 105. Herdando interfaces
+
+Aqui podemos cria uma interface de modo que obriguemos a class a seguir o que está definido na interface usando o `implements`
+
+```ts
+interface Product {
+  id: number;
+  name: string;
+  quantity: number;
+  price: number;
+  get getTotal(): number;
+}
+
+class Produto implements Product {
+  id;
+  name;
+  quantity;
+  price;
+
+  constructor(id: number, name: string, quantity: number, price: number) {
+    this.id = id;
+    this.name = name;
+    this.quantity = quantity;
+    this.price = price;
+  }
+
+  get getTotal() {
+    return this.quantity * this.price;
+  }
+}
+
+const prod = new Produto(1, "Cadeira", 2, 56);
+
+console.log(prod.getTotal);
+```
+
+### 106. Override de métodos
+
+Um override é usado para substituir o método de uma classe copiando ele dentro de uma subclasse mas alterando sua lógica interna
+
+```ts
+class ClassMae {
+  // Metodo da class mãe
+  falaAlgo(): void {
+    console.log("oi");
+  }
+}
+
+class ClassFilha extends ClassMae {
+  // Mesmo método subtituido na classe filha
+  falaAlgo(): void {
+    console.log("algo");
+  }
+}
+
+const test = new ClassFilha();
+
+test.falaAlgo();
+```
+
+### 107. Sobre a visibilidade de propriedades e métodos
+
+Explica os diferentes níveis de acesso (public, private, protected) e como eles controlam a visibilidade dos membros da classe.
+
+### 108. Visibilidade public
+
+Membros public são acessíveis de qualquer lugar do código onde a instância estiver disponível.
+
+### 109. Visibilidade protected
+
+Membros protected são acessíveis dentro da própria classe e também nas subclasses que a estendem.
+
+### 110. Visibilidade private
+
+Membros private só são acessíveis dentro da própria classe. Não podem ser acessados nem mesmo por subclasses.
+
+### 111. Static members
+
+Propriedades e métodos estáticos pertencem à classe em si, e não às suas instâncias. São acessados diretamente pela classe.
+
+### 112. Generic class
+
+Classes genéricas usam parâmetros de tipo (como <T>) para funcionar com diferentes tipos de dados de forma segura e reutilizável.
+
+### 113. Parameter properties
+
+Sintaxe que permite declarar e inicializar propriedades diretamente nos parâmetros do construtor com modificadores como public.
+
+### 114. Class expressions
+
+Declarações de classe atribuídas a variáveis. São úteis em contextos onde é necessário definir classes de forma dinâmica.
+
+### 115. Classe abstrata
+
+Classes abstratas não podem ser instanciadas diretamente. Servem como modelo para outras classes e podem conter métodos abstratos.
+
+### 116. Relação entre classes
+
+Apresenta os diferentes tipos de relação entre classes, como composição, agregação e associação.
+
+### 117. Exercício
+
+Atividade prática para aplicar e consolidar os conceitos aprendidos sobre classes, herança, visibilidade, entre outros.
