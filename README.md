@@ -15,7 +15,7 @@ const adulto: boolean = true;
 const simbolo: symbol = Symbol("qualquer symbol");
 ```
 
-Para os tipos de dados passados por referencia(arrays e objetos) vamos fazer:
+Para os tipos de dados passados por referencia(arrays e objetos) vamos faze:
 
 **1. Arrays**
 
