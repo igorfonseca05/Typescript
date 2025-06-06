@@ -94,7 +94,7 @@
         }
     }
 
-    const order = new Orders(1, 2, 23, 'Caderno', 15.63)
+    // const order = new Orders(1, 2, 23, 'Caderno', 15.63)
 
     // console.log(order)
 
