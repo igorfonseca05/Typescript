@@ -1,6 +1,4 @@
-
 ![ty](https://github.com/user-attachments/assets/b4234b87-a62e-42dd-ae77-10a391ab1833)
-
 
 # Seção 1 - Introdução
 
@@ -1304,15 +1302,65 @@ Explica os diferentes níveis de acesso (public, private, protected) e como eles
 
 ### 108. Visibilidade public
 
-Membros public são acessíveis de qualquer lugar do código onde a instância estiver disponível.
+Membros public são acessíveis de qualquer lugar do código onde a instância estiver disponível, incluindo em subclasses.
+
+```ts
+class GetId {
+  public id = "as133asdf135d";
+}
+
+const id = new GetId();
+
+console.log(id.id);
+```
 
 ### 109. Visibilidade protected
 
-Membros protected são acessíveis dentro da própria classe e também nas subclasses que a estendem.
+Membros protected são acessíveis dentro da própria classe e também nos métodos das subclasses que a estendem.
+
+```ts
+// Class mae
+class Test {
+  protected userName = "Lucas Matheus Pereira";
+}
+// subClass
+class OutroTest extends Test {
+  showUserName() {
+    console.log(this.userName);
+  }
+}
+const inst = new OutroTest();
+
+inst.showUserName();
+```
 
 ### 110. Visibilidade private
 
 Membros private só são acessíveis dentro da própria classe. Não podem ser acessados nem mesmo por subclasses.
+
+```ts
+ class Private {
+        private name = 'Igor'
+
+        showName() {
+            console.log(this.name)
+        }
+
+        private getFirstletter() {
+            console.log(this.name[0])
+        }
+
+        showPrivateMethod() {
+            this.getFirstletter()
+        }
+    }
+
+    const privateInst = new Private()
+    privateInst.showName()
+
+    privateInst.showPrivateMethod()
+
+```
 
 ### 111. Static members
 

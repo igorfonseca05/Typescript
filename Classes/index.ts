@@ -96,6 +96,7 @@
 
     // const order = new Orders(1, 2, 23, 'Caderno', 15.63)
 
+
     // console.log(order)
 
     // order.total()
@@ -223,15 +224,61 @@
 
     const test = new ClassFilha()
 
-    test.falaAlgo()
+    // test.falaAlgo()
 
     // 107. Sobre a visibilidade de propriedades e métodos
 
     // 108. Visibilidade public
 
+    class GetId {
+        public id = 'as133asdf135d'
+    }
+
+    const id = new GetId()
+
+    console.log(id.id)
+
     // 109. Visibilidade protected
 
+    class Test {
+        protected userName = 'Lucas Matheus Pereira'
+    }
+
+    class OutroTest extends Test {
+
+        showUserName() {
+            console.log(this.userName)
+        }
+    }
+
+    const inst = new OutroTest()
+
+    inst.showUserName()
+
     // 110. Visibilidade private
+
+    class Private {
+        private name = 'Igor'
+
+        showName() {
+            console.log(this.name)
+        }
+
+        private getFirstletter() {
+            console.log(this.name[0])
+        }
+
+        showPrivateMethod() {
+            this.getFirstletter()
+        }
+    }
+
+    const privateInst = new Private()
+    privateInst.showName()
+
+    privateInst.showPrivateMethod()
+
+    // console.log(privateInst.name)
 
     // 111. Static members
 
