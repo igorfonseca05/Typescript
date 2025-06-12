@@ -174,10 +174,50 @@
     privateInst.showPrivateMethod();
     // console.log(privateInst.name)
     // 111. Static members
+    // Criamos metodos estáticos de classes
+    class Name {
+    }
+    Name.username = 'igor';
+    console.log(Name.username);
     // 112. Generic class
+    class Item {
+        constructor(item1, item2) {
+            this.item1 = item1;
+            this.item2 = item2;
+        }
+    }
+    const item = new Item('oi', 2);
+    const item2 = new Item(true, []);
     // 113. Parameter properties
+    class Test2 {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+            this.name = name;
+            this.age = age;
+        }
+    }
+    const test2 = new Test2('igor', 30);
+    console.log(test2.name);
     // 114. Class expressions
+    const myperson = class User {
+        constructor(name) {
+            this.name = name;
+        }
+    };
+    const test3 = new myperson('igor');
     // 115. Classe abstrata
+    class UserData2 {
+    }
+    class UserClass extends UserData2 {
+        constructor(name) {
+            super();
+            this.name = name;
+        }
+        getName() {
+            console.log(this.name);
+        }
+    }
     // 116. Relação entre classes
     // 117. Exercício
 })();

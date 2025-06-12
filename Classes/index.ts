@@ -282,14 +282,75 @@
 
     // 111. Static members
 
+    // Criamos metodos estáticos de classes
+
+    class Name {
+        static username = 'igor'
+    }
+
+    console.log(Name.username)
+
     // 112. Generic class
+
+    class Item<T, U> {
+        item1
+        item2
+
+        constructor(item1: T, item2: U) {
+            this.item1 = item1
+            this.item2 = item2
+        }
+    }
+
+    const item = new Item('oi', 2)
+    const item2 = new Item(true, [])
 
     // 113. Parameter properties
 
+    class Test2 {
+        constructor(public name: string, private age: number) {
+            this.name = name
+            this.age = age
+        }
+    }
+
+    const test2 = new Test2('igor', 30)
+
+    console.log(test2.name)
+
     // 114. Class expressions
+
+    const myperson = class User {
+        name
+
+        constructor(name: string) {
+            this.name = name
+        }
+    }
+
+    const test3 = new myperson('igor')
 
 
     // 115. Classe abstrata
+
+
+    abstract class UserData2 {
+        abstract getName(): void
+    }
+
+
+    class UserClass extends UserData2 {
+        name
+
+        constructor(name: string) {
+            super()
+            this.name = name
+        }
+
+        getName(): void {
+            console.log(this.name)
+        }
+    }
 
     // 116. Relação entre classes
 

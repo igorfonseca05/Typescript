@@ -1339,53 +1339,115 @@ inst.showUserName();
 Membros private só são acessíveis dentro da própria classe. Não podem ser acessados nem mesmo por subclasses.
 
 ```ts
- class Private {
-        private name = 'Igor'
+class Private {
+  private name = "Igor";
 
-        showName() {
-            console.log(this.name)
-        }
+  showName() {
+    console.log(this.name);
+  }
 
-        private getFirstletter() {
-            console.log(this.name[0])
-        }
+  private getFirstletter() {
+    console.log(this.name[0]);
+  }
 
-        showPrivateMethod() {
-            this.getFirstletter()
-        }
-    }
+  showPrivateMethod() {
+    this.getFirstletter();
+  }
+}
 
-    const privateInst = new Private()
-    privateInst.showName()
+const privateInst = new Private();
+privateInst.showName();
 
-    privateInst.showPrivateMethod()
-
+privateInst.showPrivateMethod();
 ```
 
 ### 111. Static members
 
 Propriedades e métodos estáticos pertencem à classe em si, e não às suas instâncias. São acessados diretamente pela classe.
 
+```javascript
+class Name {
+  static username = "igor";
+}
+
+console.log(Name.username);
+```
+
 ### 112. Generic class
 
 Classes genéricas usam parâmetros de tipo (como <T>) para funcionar com diferentes tipos de dados de forma segura e reutilizável.
+
+```javascript
+class Item<T, U> {
+  item1;
+  item2;
+
+  constructor(item1: T, item2: U) {
+    this.item1 = item1;
+    this.item2 = item2;
+  }
+}
+
+const item = new Item("oi", 2);
+const item2 = new Item(true, []);
+```
 
 ### 113. Parameter properties
 
 Sintaxe que permite declarar e inicializar propriedades diretamente nos parâmetros do construtor com modificadores como public.
 
+```ts
+class Test2 {
+  constructor(public name: string, private age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+const test2 = new Test2("igor", 30);
+
+console.log(test2.name);
+```
+
 ### 114. Class expressions
 
 Declarações de classe atribuídas a variáveis. São úteis em contextos onde é necessário definir classes de forma dinâmica.
 
+```ts
+const myperson = class User {
+  name;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+};
+
+const test3 = new myperson("igor");
+```
+
 ### 115. Classe abstrata
 
-Classes abstratas não podem ser instanciadas diretamente. Servem como modelo para outras classes e podem conter métodos abstratos.
+Classes abstratas não podem ser instanciadas diretamente. Servem como modelo para outras classes e podem conter métodos abstratos. No exemplo abaixo criei uma classe abstrata e dentro da classe que extende a classe abstrata teve de conter o getName.
+
+```ts
+abstract class UserData2 {
+  abstract getName(): void;
+}
+
+class UserClass extends UserData2 {
+  name;
+
+  constructor(name: string) {
+    super();
+    this.name = name;
+  }
+
+  getName(): void {
+    console.log(this.name);
+  }
+}
+```
 
 ### 116. Relação entre classes
 
 Apresenta os diferentes tipos de relação entre classes, como composição, agregação e associação.
-
-### 117. Exercício
-
-Atividade prática para aplicar e consolidar os conceitos aprendidos sobre classes, herança, visibilidade, entre outros.
