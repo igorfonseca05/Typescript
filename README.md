@@ -1451,3 +1451,126 @@ class UserClass extends UserData2 {
 ### 116. Relação entre classes
 
 Apresenta os diferentes tipos de relação entre classes, como composição, agregação e associação.
+
+# Módulos com TS
+
+Módulos é a forma que temos de dividir um grande projeto em pedaços que conversam entre si. Para exportar podemos usar o `export default` e importar com `import`.
+
+## 118. Inicio de seção
+
+## 119. Sobre Módulos
+
+## 120. Importação de arquivos
+
+Para importar e exportar usando o ts, criamos dois módulos que queremos que convensem entre si, a o que queremos exportar fazemos
+
+```ts
+export default function dbConnection() {
+  // Lógica de negócio dbConnection()
+}
+```
+
+ou
+
+```ts
+function dbConnection() {
+  // Lógica de negócio dbConnection()
+}
+
+export default dbConnection();
+```
+
+Para importar a função, dentro do arquivo que queremos usá-la fazemos:
+
+```ts
+import dbConnection from "./db.js"; // Não use .ts, não vai funcionar!
+
+dbConnection();
+```
+
+## 121. Importando variáveis
+
+Para exportar váriaveis usamos o `export` somente.
+
+```ts
+export const name = "importar";
+```
+
+e para importar fazemos
+
+```ts
+import { name } from "..."; // Devemos usar a desestruturação
+```
+
+## 122. Importando variáveis
+
+Para exportar multiplas variáveis e funções, usamos o `export` na frente de cada item que desejamos
+importamos fazendo desestruturação assim com fizemos com as variáveis
+
+```ts
+export const name = "importar";
+export function showName() {
+  console.log("oi");
+}
+```
+
+e para importar fazemos
+
+```ts
+import { name, showName } from "..."; // Devemos usar a desestruturação
+```
+
+## 123. Alias para importação
+
+É um apelido que usamos no momento da importação usando o `as`
+
+```ts
+export const name = "importar";
+```
+
+e para importar fazemos
+
+```ts
+import { name as novoNome } from "..."; // Devemos usar a desestruturação
+```
+
+agora dentro do nosso código usaremos o _novoNome_ para referenciar a variavel.
+
+## 124. Importando diversos itens
+
+Podemos importar tudo de um arquivo usando o simbolo `*`
+
+```ts
+export const name = "importar";
+export const age = 30;
+
+export function showName() {
+  console.log("oi");
+}
+
+export const user = {
+  name: "igor",
+};
+```
+
+e para importar fazemos
+
+```ts
+import * as allData from "..."; // allData agora é um objeto
+```
+
+## 125. Importando tipos
+
+Podemos importar e exportar tipos e interface
+
+```ts
+export interface Nome {
+  nome: string;
+}
+```
+
+```ts
+import { Nome } from "..."; // Devemos usar o destructuting
+```
+
+## 126. Final da seção
